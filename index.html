@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nandini | Developer Portfolio</title>
+
+<style>
+:root {
+  --bg: #080d1b;
+  --card: #111a30;
+  --text: #f5f3ff;
+  --muted: #b7c3dc;
+  --blue: #35c7ff;
+  --purple: #ad55ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: .3s;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  background: #080d1bf2;
+  border-bottom: 1px solid #243452;
+}
+
+.logo {
+  color: var(--purple);
+  font-size: 23px;
+  font-weight: bold;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--blue);
+}
+
+#theme {
+  padding: 8px 12px;
+  border: 1px solid var(--purple);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+section {
+  padding: 65px 8%;
+}
+
+.hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.small-title {
+  color: var(--blue);
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.2;
+  margin: 15px 0;
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+p {
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-block;
+  margin: 20px 8px 0 0;
+  padding: 11px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  background: linear-gradient(100deg, #218bff, #b32fff);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.profile {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  border: 3px solid var(--purple);
+  background: linear-gradient(140deg, #143b68, #381458);
+  display: grid;
+  place-items: center;
+  font-size: 100px;
+  box-shadow: 0 0 45px #8d43ff35;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.about {
+  background: #0c1427;
+  border-top: 1px solid #243452;
+  border-bottom: 1px solid #243452;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.quote {
+  padding: 30px;
+  border: 1px solid var(--purple);
+  border-radius: 20px;
+  background: var(--card);
+  font-size: 22px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #273b60;
+  border-radius: 14px;
+  padding: 23px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: var(--blue);
+  box-shadow: 0 10px 30px #268bff18;
+}
+
+.card h3 {
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.skill {
+  margin-bottom: 17px;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.bar {
+  height: 6px;
+  background: #26344e;
+  border-radius: 10px;
+  margin-top: 7px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  border-radius: 10px;
+}
+
+.project-icon {
+  font-size: 35px;
+  margin-bottom: 8px;
+}
+
+.tags {
+  margin-top: 12px;
+  color: var(--blue);
+  font-size: 12px;
+}
+
+.contact {
+  background: #0c1427;
+  text-align: center;
+}
+
+form {
+  max-width: 550px;
+  margin: 25px auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 12px;
+  border: 1px solid #304365;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 8px;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #243452;
+  color: var(--muted);
+}
+
+#top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  border: 1px solid var(--purple);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  display: none;
+}
+
+.light {
+  --bg: #f1f5ff;
+  --card: #ffffff;
+  --text: #17213a;
+  --muted: #53617c;
+}
+
+.light header {
+  background: #f1f5fff2;
+}
+
+.light .about,
+.light .contact {
+  background: #e7edff;
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  nav a {
+    margin: 0;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 45px;
+  }
+
+  .profile {
+    width: 180px;
+    height: 180px;
+    font-size: 70px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 45px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">&lt;Nandu.dev /&gt;</div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button id="theme" onclick="toggleTheme()">☀ / ☾</button>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="small-title">BCA STUDENT • DEVELOPER</p>
+
+    <h1>Hello, I'm Nandini<br>
+      <span class="gradient">Nandini Nandu</span>
+    </h1>
+
+    <h2 id="typing">Full Stack Developer</h2>
+
+    <p>
+      I create modern websites and useful digital experiences.
+      I enjoy coding, solving problems and learning new technologies.
+    </p>
+
+    <a href="#projects" class="btn">Explore Projects ↗</a>
+    <a href="#contact" class="btn">Contact Me</a>
+  </div>
+
+  <div class="profile">👩🏻‍💻</div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <h2 class="section-title">About <span class="gradient">Me</span></h2>
+
+      <p>
+        I am a Bachelor of Computer Applications student
+        interested in frontend and backend development.
+        I enjoy creating responsive websites and practical
+        applications. My goal is to become a skilled full
+        stack developer.
+      </p>
+
+      <a href="#skills" class="btn">Discover My Skills</a>
+    </div>
+
+    <div class="quote">
+      <span class="gradient">“</span>
+      <p>Dream it. Code it. Build it.</p>
+      <small class="gradient">— My developer mindset</small>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Technical <span class="gradient">Skills</span></h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🎨 Frontend</h3>
+
+      <div class="skill">
+        <div class="skill-label"><span>HTML</span><span>90%</span></div>
+        <div class="bar"><div class="fill" style="width:90%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-label"><span>CSS</span><span>85%</span></div>
+        <div class="bar"><div class="fill" style="width:85%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-label"><span>JavaScript</span><span>70%</span></div>
+        <div class="bar"><div class="fill" style="width:70%"></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚙️ Backend</h3>
+      <p>Python</p>
+      <p>Flask</p>
+      <p>Node.js</p>
+      <p>REST APIs</p>
+    </div>
+
+    <div class="card">
+      <h3>🗄️ Database</h3>
+      <p>SQLite</p>
+      <p>MySQL</p>
+      <p>CRUD Operations</p>
+      <p>Database Design</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Featured <span class="gradient">Projects</span></h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="project-icon">🛍️</div>
+      <h3>Thrift Store</h3>
+      <p>
+        A marketplace for buying and selling used books,
+        clothes and electronics with seller ratings.
+      </p>
+      <div class="tags">FLASK • SQLITE • CRUD</div>
+    </div>
+
+    <div class="card">
+      <div class="project-icon">🌦️</div>
+      <h3>Weather App</h3>
+      <p>
+        A weather interface designed to display current
+        weather information for selected cities.
+      </p>
+      <div class="tags">HTML • CSS • JAVASCRIPT</div>
+    </div>
+
+    <div class="card">
+      <div class="project-icon">🎓</div>
+      <h3>Student Manager</h3>
+      <p>
+        An application concept for adding, viewing,
+        updating and deleting student records.
+      </p>
+      <div class="tags">PYTHON • SQLITE</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="section-title">Let's <span class="gradient">Connect</span></h2>
+  <p>Have an idea? Let's create something amazing.</p>
+
+  <form id="contactForm">
+    <input type="text" id="Nandini" placeholder="Your Name" required>
+    <input type="email" id="nandininaandu31248@gmail.coma" placeholder="Your Email" required>
+    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+    <button class="btn" type="submit">Send Message ↗</button>
+  </form>
+
+  <p id="status" aria-live="polite"></p>
+</section>
+
+<footer>
+  <p>© <span id="year"></span> Nandini Nandu | Crafted with 💜</p>
+</footer>
+
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  ↑
+</button>
+
+<script>
+const words = [
+  "Full Stack Developer",
+  "Web Designer",
+  "Creative Coder"
+];
+
+let index = 0;
+
+setInterval(() => {
+  index = (index + 1) % words.length;
+  document.getElementById("typing").textContent = words[index];
+}, 2500);
+
+function toggleTheme() {
+  document.body.classList.toggle("light");
+}
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+window.addEventListener("scroll", () => {
+  document.getElementById("top").style.display =
+    window.scrollY > 300 ? "block" : "none";
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+
+  document.getElementById("status").textContent =
+    "Thank you, " + name +
+    "! Your form was validated. Connect a backend to send messages.";
+
+  this.reset();
+});
+</script>
+
+</body>
+</html>
